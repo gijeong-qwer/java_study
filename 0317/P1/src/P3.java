@@ -1,7 +1,13 @@
 public class P3 {
+    // **** 코드볼때 메모리를 머릿속에 항상 그리기
+
     public static void main(String[] args) {
         int[] arr1 = new int[3];
         int[] arr2 = new int[5];
+
+        arr1[0] = 50; // 타입옆에[] 와 변수옆에[]의 느낌이 다른걸 인지하기
+        arr1[2] = 70; // 변수[]옆에 붙으면 접근이 가능하다는것것
+
         // 변수는 문법적표현 , 메모리는 런타임에 대한것
         // 기본타입의 변수 0개
         // int 타입의 메모리는 8개 , (run time시에) 변수라고 할 수 없음
