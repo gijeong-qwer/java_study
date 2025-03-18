@@ -10,10 +10,10 @@ public class P14 {
         int sum = 0;
 
         for (char c : yyy) {
-            // System.out.println(c);
-            sum += c;
+            // System.out.println(c); // System.out.println((int)c);
+            sum += (c-'0') ;  // 문자열0의 숫자 48만큼 빼는것 *****
         }
-        System.out.println(sum);
+        System.out.println(sum); // 출력값 346 : 문자에 해당하는 숫자 ex  A = 65 , a = 97
 
     }
 }
