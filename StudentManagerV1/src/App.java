@@ -96,7 +96,7 @@ public class App {
             } else if (command.equals("2")) {
                 // todo: 학생정보 목록 출력 로직
                 System.out.println("[학생 목록]");
-                for (int i = 0; i < count; i++) {// 배열은 꽉차있을때만 쓰는게 몸에 배어있음 개발자들은 , 아닌경우는 리스트트
+                for (int i = 0; i < count; i++) {// 배열은 꽉차있을때만 쓰는게 몸에 배어있음 개발자들은 , 아닌경우는 리스트
                     String text = "";
                     text += "이름: " + nameList[i];
                     text += ", 나이: " + ageList[i];
@@ -105,7 +105,7 @@ public class App {
 
                 }
                 System.err.println("총 " + count + "명이 존재합니다.");
-            } else if (command.equals("3")) {
+            } else if (command.equals("3")) { // *****
                 // todo: 학생정보 검색 로직
                 System.out.println("[학생 검색]");
                 System.out.print("검색어 입력 >");
@@ -135,6 +135,7 @@ public class App {
                 System.out.print("삭제할 학생의 이름 >");
                 String deleteName = scanner.nextLine();
 
+                int deleteCount = 0;
                 for (int i = 0; i < count; i++) {
                     if (nameList[i].equals(deleteName)) { // 연속으로 두개이상 있을때 안됨됨
                         for (int x = i; x < count - 1; x++) { // 밑의 x+1 때문에 -1 안하면 범위를 벗어나게됨
@@ -144,11 +145,14 @@ public class App {
 
                         }
                         count--;
-                        i--; // **** 디테일 잘 모르겠음음
+                        i--; // **** "직전 바뀐 배열에 대해 검사를 안 하는 경우를 방지하기 위해 i--를 추가하는 것" ****
+                        deleteCount++;
                     }
                 }
+                System.out.println("총 " + deleteCount + "명이 삭제 되었습니다.");
             } else if (command.equals("6")) {
                 // todo: 학생 정보 통계
+                // 문제: 평균 , 총 학생수 , 1등 이름
             } else {
                 System.out.println("잘못된 명령을 입력하셨습니다. 다시 입력해주세요"); // 0은 break로 이미 탈출했으므로 상관없음
             }
