@@ -59,24 +59,43 @@ public class test {
                 int age = Integer.parseInt(scanner.nextLine());
                 System.out.print("학생의 점수는? >");
                 int score = Integer.parseInt(scanner.nextLine());
+
                 if (count == nameList.length) {
                     String[] replace = new String[nameList.length * 2];
                     for (int i = 0; i < nameList.length; i++) {
                         replace[i] = nameList[i];
                     }
                     nameList = replace;
-                    int[] replace_score = new int[scoreList.length * 2];
-                    for (int i = 0; i < scoreList.length; i++) {
-                        replace_score[i] = scoreList[i];
-                    }
-                    scoreList = replace_score;
-                    int[] replace_age = new int[ageList.length * 2];
-                    for (int i = 0; i < ageList.length; i++) {
+                    int[] replace_age = new int[nameList.length * 2]; // age 로 바꿔도 되는데 귀찮찮
+                    for (int i = 0; i < nameList.length; i++) {
                         replace_age[i] = ageList[i];
                     }
                     ageList = replace_age;
-
+                    int[] replace_score = new int[nameList.length * 2];
+                    for (int i = 0; i < nameList.length; i++) {
+                        replace_score[i] = scoreList[i];
+                    }
+                    scoreList = replace_score;
                 }
+
+                // if (count == nameList.length) {
+                // String[] replace = new String[nameList.length * 2];
+                // for (int i = 0; i < nameList.length; i++) {
+                // replace[i] = nameList[i];
+                // }
+                // nameList = replace;
+                // int[] replace_score = new int[scoreList.length * 2];
+                // for (int i = 0; i < scoreList.length; i++) {
+                // replace_score[i] = scoreList[i];
+                // }
+                // scoreList = replace_score;
+                // int[] replace_age = new int[ageList.length * 2];
+                // for (int i = 0; i < ageList.length; i++) {
+                // replace_age[i] = ageList[i];
+                // }
+                // ageList = replace_age;
+
+                // }
                 scoreList[count] = score;
                 nameList[count] = name;
                 ageList[count] = age;
