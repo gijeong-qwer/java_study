@@ -73,7 +73,8 @@ class StudentP6 {
     }
 
     StudentP6(String name, int age) {
-        this(name, age, 0); // 이건 괜찮으니까 넘어가자
+        this(name, age, 0); // this() 같은이름의 매개변수를 가진 오버로딩된 함수를 찾아서 사용
+
         // System.out.println("2개 짜리 생성자가 실행됨");
         // this.name = name;
         // this.age = age;

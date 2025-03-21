@@ -56,6 +56,10 @@ public class practice {
                         System.out.println(" 점수 : " + scoreList[i]);
                     }
                 }
+            } else if (counter.equals("4")) {
+
+            } else if (counter.equals("5")) { // 정보 삭제
+
             }
             System.out.println("계속하시고 싶으면 Enter를 눌러주세요");
             sc.nextLine();
