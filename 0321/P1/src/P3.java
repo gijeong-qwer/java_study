@@ -7,9 +7,8 @@ public class P3 {
         System.out.println(str);
         System.out.println(str.substring(4));
         System.out.println(str.substring(4).substring(3));
-        System.out.println(str.substring(4).substring(3).length()); // 메소드 체이닝 . 으로 잇는것
-        // 호출순서() 안부터 str.substring(4)호출됨 >> substring(3)호출됨 >> length() 호출됨 의 결과를
-        // println에 넣는다
+        System.out.println(str.substring(4).substring(3).length()); // 메소드 체이닝 . 으로 잇는것 // 하나씩 반환해서 처리하는과정
+        // 호출순서() 안부터 str.substring(4)호출됨 >>처리하고 >> substring(3)호출됨 >> 처리하고 >>length() 호출됨 의 결과를 println에 넣는다
 
         // 확장자 명을 출력하세요!!! ex) .jpg 같은거
 

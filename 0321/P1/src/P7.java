@@ -10,13 +10,19 @@ public class P7 {
 
         // Math2.pi = 50; // 문법적으로 변경이 가능하여 , 개발자의 의도와 다르게됨
 
-        System.out.println(4 * 4 * Math2.pi);
+        
+
+        System.out.println(4 * 4 * Math2.PI_VALUE);
+
+
 
     }
 }
 
 class Math2 {
-    final static double pi = 3.14; // static double pi = 3.14; 가 변경 가능하므로
+    // 기능에 제한을 걸어 , 읽기만 가능하고 , 수정불가능하게 만드는것 : 내의도대로 써라
+    final static double PI_VALUE = 3.14; // static double pi = 3.14; 가 변경 가능하므로
     // Math2.pi = 50; 에 의해 수정되서 final을 붙임 , 코드의 안정성 확보
+    // 진정한 의미에서 상수가 됨 >> 명명규칙을 모두다 대문자로 쓰는게 규칙
 
 }
