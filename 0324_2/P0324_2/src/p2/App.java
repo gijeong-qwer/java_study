@@ -44,7 +44,7 @@ class Account {
 
     // 출금
     public void withdraw(int value) { // value는 추상화레벨이 너무 높은표현 >> 코드를 이해하기 어려워짐
-        if (isBalanceRemaining(value)) { // this.balance
+        if (isInsufficientBalance(value)) { // this.balance
             System.out.println("잔액이 부족합니다.");
             return;
         }
@@ -56,14 +56,14 @@ class Account {
     private void decreaseBalance(int value) {
         this.balance -= value;
     }
-    // getter (read) - 메서드로 작업 읽기 권한을 주는것것
+    // getter (read) - 메서드로 작업 읽기 권한을 주는것
 
     public String getOwner() {
-        // 자바빈= 인스턴스
+        // 자바의 bin= 인스턴스
         return owner;
     }
 
-    private boolean isBalanceRemaining(int value) {
-        return value <= this.balance;
+    private boolean isInsufficientBalance(int value) {
+        return value > this.balance;
     }
 }

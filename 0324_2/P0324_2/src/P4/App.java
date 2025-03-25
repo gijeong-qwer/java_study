@@ -5,6 +5,9 @@ public class App {
         StudentDto st1 = new StudentDto("시연", 26, 100);
         // 다른클래스에서 private으로 초기화하는 방법이 , 생성자로 초기화하는방식밖에없음
         st1.setName("마젠타");
+        st1.setAge(29);
+        st1.setScore(1000);
+
         // st1.name= "시연"; // write -private이라서 접근불가가
         // System.out.println(st1.name); // read
 
@@ -20,11 +23,15 @@ public class App {
 // DTO = Data Transfer Object = 데이터 형태 (기능 존재 X - 속성만이 중요함) - 여러인스턴스가 생성 관리됨
 
 // 속성 정의 클래스 , 주인클래스
+// StudentDto >>  개념적으로 봤을때 기능적으로 setter getter만 갖고있으면 아무것도 없는것
+// 속성만 갖고있는 상태 (write , read는 안쳐줌)
 class StudentDto {
     private String name;
     private int age;
     private int score;
 
+
+    
     public StudentDto(String name, int age, int score) {
         this.name = name;
         this.age = age;
@@ -49,6 +56,14 @@ class StudentDto {
     public void setName(String name) {
         this.name = name;
 
+    }
+
+    public void setAge(int age){
+        this.age = age;
+    }
+
+    public void setScore(int score){
+        this.score = score;
     }
 
 }
