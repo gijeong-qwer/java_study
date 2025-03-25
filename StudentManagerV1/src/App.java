@@ -137,7 +137,7 @@ public class App {
 
                 int deleteCount = 0;
                 for (int i = 0; i < count; i++) {
-                    if (nameList[i].equals(deleteName)) { // 연속으로 두개이상 있을때 안됨됨
+                    if (nameList[i].equals(deleteName)) { // 연속으로 두개이상 있을때 안됨
                         for (int x = i; x < count - 1; x++) { // 밑의 x+1 때문에 -1 안하면 범위를 벗어나게됨
                             nameList[x] = nameList[x + 1]; // 삭제후 배열을 한칸씩 옆으로 밀어 넣는것
                             ageList[x] = ageList[x + 1];

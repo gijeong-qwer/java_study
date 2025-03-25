@@ -23,7 +23,7 @@ public class Service {
     public void showList() {
         StudentDto[] list = repository.findAll();
         // list[0] = null; // 얘는 복사본 값 변경(안전)
-        // list[0].setAge(70); // 얕은복사 이러면 데이터가 변형됨 , 깊은 복사시 ㄱㅊㅊ
+        // list[0].setAge(70); // 얕은복사 이러면 데이터가 변형됨 , 깊은 복사시 ㄱㅊ
         // Repository 클래스에서 주소를 단순히 복사한것이기 때문에 수치가 변경되기 때문에 별로
         // 깊은 복사는 실제로는 다룰일이 거의 없음 (어디까지가 안전하게 하는 기준인가>> 를 기준으로 하면됨) , 대부분의 경우는 얕은 복사가 정답
         // 그러나 이 경우만 한해서는 깊은복사
