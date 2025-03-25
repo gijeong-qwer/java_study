@@ -13,7 +13,7 @@ public class Repository {
 
         if (count == list.length) {
             StudentDto[] newList = new StudentDto[list.length * 2];
-            for (int i = 0; i < count; i++) { // 얕은 복사 하지만 깊은 복사를 할 필요가 없어서 이런식으로 구조를 짤 필요가 없음, 얕은복사가 정답답
+            for (int i = 0; i < count; i++) { // 얕은 복사 하지만 깊은 복사를 할 필요가 없어서 이런식으로 구조를 짤 필요가 없음, 얕은복사가 정답
                 newList[i] = list[i];
             }
             list = newList;
@@ -57,5 +57,20 @@ public class Repository {
             }
         }
         return newList;
+    }
+
+    public int removeByName(String deleteName) {
+        int deleteCount = 0;
+        for (int i = 0; i < count; i++) {
+            if (list[i].getName().equals(deleteName)) {
+                for (int j = i; j < count - 1; j++) {
+                    list[j] = list[j + 1];
+                }
+                count--;
+                i--;
+                deleteCount++;
+            }
+        }
+        return deleteCount;
     }
 }

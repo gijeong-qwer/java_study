@@ -81,13 +81,15 @@ public class Controller {
                 service.showList();
                 break;
             case "3":
-
+                service.search();
                 break;
             case "4":
+                service.remove();
                 break;
-            case "5":
+            case "5": // 직접해보기
                 break;
             case "6":
+                service.statistic();
                 break;
             default:
                 IoUtil.print("잘못된 입력을 하셨습니다. 메뉴를 잘 보시고 다시 선택해주세요");

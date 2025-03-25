@@ -28,6 +28,8 @@ public class Service {
         // 깊은 복사는 실제로는 다룰일이 거의 없음 (어디까지가 안전하게 하는 기준인가>> 를 기준으로 하면됨) , 대부분의 경우는 얕은 복사가 정답
         // 그러나 이 경우만 한해서는 깊은복사
 
+        IoUtil.print("총 인원: " + list.length);
+
         for (StudentDto studentDto : list) {
             String text = "";
             text += "이름: " + studentDto.getName();
@@ -35,5 +37,37 @@ public class Service {
             text += ", 점수" + studentDto.getScore();
             IoUtil.print(text);
         }
+    }
+
+    public void search() {
+        String searchWord = IoUtil.input("검색어 입력 > ");
+
+        StudentDto[] list = repository.findByName(searchWord);
+        IoUtil.print("검색된인원" + list.length);
+
+        for (StudentDto studentDto : list) {
+            String text = "";
+            text += "이름: " + studentDto.getName();
+            text += ", 나이: " + studentDto.getAge();
+            text += ", 점수" + studentDto.getScore();
+        }
+
+    }
+
+    public void remove() {
+        String deleteName = IoUtil.input("삭제할 이름 > ");
+        int count = repository.removeByName(deleteName);
+        IoUtil.print("삭제된 총 인원: " + count);
+    }
+
+    public void statistic() {
+        StudentDto[] list = repository.findAll();
+
+        int sum = 0;
+        for (StudentDto studentDto : list) {
+            sum += studentDto.getScore();
+        }
+        double average = (double) sum / list.length;
+        IoUtil.print("총 인원: " + list.length + ", 평균: " + average);
     }
 }
