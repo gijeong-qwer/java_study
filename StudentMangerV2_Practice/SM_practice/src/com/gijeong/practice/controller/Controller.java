@@ -2,6 +2,7 @@ package com.gijeong.practice.controller;
 
 import java.util.Scanner;
 
+import com.gijeong.practice.service.Service;
 import com.gijeong.practice.uitl.IoUtil;
 
 // 기능 불러오기  >> 실질적 기능 >> 기능을 저장하는 구조
@@ -22,7 +23,10 @@ public class Controller {
     // System.out.println("asdfasf");
     // }
 
+    private Service service = new Service(); // Controller와 생명주기 공유유
+
     public void run() {
+
         IoUtil.println("프로그램 시작합니다. 학생관리 프로그램 V2");
         // 입력을 받아서 기능을 고르게 하려면 스캐너로 받아보자
         Scanner sc = new Scanner(System.in);
@@ -41,9 +45,9 @@ public class Controller {
                 break;
             }
             if (command.equals("1")) {
-                System.out.println("기능1");
+                service.register();
             } else if (command.equals("2")) {
-
+                service.showlist();
             } else if (command.equals("3")) {
 
             } else if (command.equals("4")) {
@@ -53,7 +57,7 @@ public class Controller {
             } else if (command.equals("6")) {
 
             }
-
+            IoUtil.pause();
         }
 
     }

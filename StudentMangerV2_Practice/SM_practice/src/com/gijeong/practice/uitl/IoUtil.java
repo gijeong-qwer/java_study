@@ -19,7 +19,8 @@ public class IoUtil {
     }
 
     // 입력
-    public static String input() { // 스캐너 써야겠지 , // 잘못한 발상 static 쓰면 안됨 >> 입력받을때만 사용해야하기 때문에
+    public static String input(String prompt) { // 스캐너 써야겠지 , // 잘못한 발상 static 쓰면 안됨 >> 입력받을때만 사용해야하기 때문에
+        System.out.print(prompt);
         return sc.nextLine();
     }
 
