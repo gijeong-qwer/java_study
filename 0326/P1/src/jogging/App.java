@@ -40,7 +40,8 @@ class Solver {
             System.out.println(takahashi.getName());
         } else if (takahashi.lessThan(akoi)) {
             System.out.println(akoi.getName());
-        } else {
+        } 
+        if (takahashi.equals(akoi)){ // else처리해도 되고, 가독성 높이려고 이렇게 해도되고
             System.out.println("draw");
         }
         // // 결과 출력

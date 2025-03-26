@@ -49,7 +49,7 @@ public class Controller {
             } else if (command.equals("2")) {
                 service.showlist();
             } else if (command.equals("3")) {
-
+                service.search();
             } else if (command.equals("4")) {
 
             } else if (command.equals("5")) {

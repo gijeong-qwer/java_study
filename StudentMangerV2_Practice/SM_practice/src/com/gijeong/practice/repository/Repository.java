@@ -48,4 +48,25 @@ public class Repository {
         return newlist;
 
     }
+
+    public StudentDto[] target() { // 근데 findAll() 이기능 있는데 굳이 target따로 잡아야해??? 저기서 참조해서 가져오면 안되나? 변수명이 달라서 같은 기능의
+                                   // 배열도 따로 구현해야하는건가..
+        // 검색하는 메서드 : 인풋을 받아야지 >> 이걸 db에서 받아야해? service로 넘어가기기
+        // >> 배열 기준으로 얼만큼 저장해야하는지 감이 잘 안오니까
+        StudentDto[] newlist = new StudentDto[count];
+        // int targetCount = 0;
+        StudentDto newstudentDto = new StudentDto();
+        for (int i = 0; i < count; i++) { // 범위 count 로 받으면 뭐가문제지?
+            // StudentDto newstudentDto = new StudentDto(); // 잘못된건 알겠는데 이러면 무슨일이 발생하는거지? 걍
+            // 생성 새로하는거라 메모리 낭비만한거아닌가? 문법적오류는 아닌데
+            newstudentDto.setName(list[i].getName());
+            newstudentDto.setAge(list[i].getAge());
+            newstudentDto.setScore(list[i].getScore());
+
+            newlist[i] = newstudentDto;
+        }
+        return newlist;
+
+    }
+
 }
