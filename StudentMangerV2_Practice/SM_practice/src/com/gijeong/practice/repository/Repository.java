@@ -55,10 +55,10 @@ public class Repository {
         // >> 배열 기준으로 얼만큼 저장해야하는지 감이 잘 안오니까
         StudentDto[] newlist = new StudentDto[count];
         // int targetCount = 0;
-        StudentDto newstudentDto = new StudentDto();
+       
         for (int i = 0; i < count; i++) { // 범위 count 로 받으면 뭐가문제지?
-            // StudentDto newstudentDto = new StudentDto(); // 잘못된건 알겠는데 이러면 무슨일이 발생하는거지? 걍
-            // 생성 새로하는거라 메모리 낭비만한거아닌가? 문법적오류는 아닌데
+            StudentDto newstudentDto = new StudentDto();  //**** */ 주의해야할 포인트 >> 생성을 밖으로 빼면 같은 인스턴스를 받음 >> 같은 주소를 받기때문에 같은 값만 나옴
+
             newstudentDto.setName(list[i].getName());
             newstudentDto.setAge(list[i].getAge());
             newstudentDto.setScore(list[i].getScore());
