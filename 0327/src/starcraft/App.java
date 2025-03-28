@@ -33,31 +33,44 @@ public class App {
         list[3] = p2;
         list[4] = z1;
 
+        ///////////////////////////////////
+        // 다형성의 핵심 : 무엇이 실행될지 모르는것 - 다형성 기준 문법적으로 정함함
+        // 코드 작성시 핵심 객체를 기준으로 코딩하지 않음(프로브, 질럿 등)
+        // 코드가 분기가 된다고 생각하면 됨 
+
         // 부대이동
         for (Unit unit : list) {
             unit.move();
         }
 
+        // 부대 공격
+        for(Unit unit: list){
+            unit.attack();
+        }
+
+        // 부대 멈춤
+        for(Unit unit: list){
+            unit.stop();
+        }
+
+        // 개념은 생성되면 안된다! abstract
+        // 인스턴스가 생성되면 안될때 
+       
     }
 }
 
 // 개념
-class Unit {
+// 유닛을 인스턴스로 생성할 필요가 있나? 없을때 abstract를 사용하는것!!!!!   >> 근데 private으로 생성자 막으면 되는거 아닌가??
+abstract class Unit {
     int healthPoint;
     int attackPoint;
     int speed;
 
-    public void move() { // move가 없는 상황 생각해보기
-        System.out.println("유닛이 " + speed + "(으)로 이동는 로직 실행");
-    }
-
-    public void stop() {
-        System.out.println("유닛이 멈추는 로직 실행");
-    }
-
-    public void attack() {
-        System.out.println("유닛이 " + attackPoint + "(으)로 공격하는 로직 수행");
-    }
+    public abstract void move(); // 로직을 오버라이딩 해서 사용할것임 >> 중괄호{} 여는순간 문법 오류임 // 가상함수
+    public abstract void stop();
+    public abstract void attack();
+    // public void attack(){} 이렇게 했으면 오버라이딩을 강제하진 않음, 오버라이딩 할 지 말지 선택 가능 
+    // final public void attack (){} // 오버라이딩 불가
 }
 
 class Prove extends Unit {
@@ -74,9 +87,20 @@ class Prove extends Unit {
     public void move() {
         System.out.println("프로브의 특유의 움직임으로 " + speed + "로 이동하는 로직 수행");
     }
+
+    @Override
+    public void attack() {
+        System.out.println("프로브가 " + attackPoint + "(으)로 쀼뷰뷱뷱 공격하는 로직 수행");
+    }
+    
+    @Override
+    public void stop(){
+        System.out.println("프로브가 멈추는 로직 수행행");
+    }
+
 }
 
-class Zealot extends Unit {
+final class Zealot extends Unit {  // 클래스 앞에 final 붙으면 상속받지 못함 마지막 자식임임
     public Zealot() {
         healthPoint = 100;
         attackPoint = 10;
@@ -86,6 +110,15 @@ class Zealot extends Unit {
     @Override // 문법아님 Override의 컴파일보조
     public void move() {
         System.out.println("질럿 특유의 움직임으로 " + speed + "로 이동하는 로직 수행");
+    }
+
+    @Override
+    public void attack() {
+        System.out.println("질럿이 " + attackPoint + "(으)로 뺘뱌뱍 공격하는 로직 수행");
+    }
+    @Override
+    public void stop(){
+        System.out.println("질럿이 멈추는 로직 수행행");
     }
 }
 
@@ -99,6 +132,16 @@ class Dragoon extends Unit {
     @Override
     public void move() {
         System.out.println("드라군 특유의 움직임으로 " + speed + "로 이동하는 로직 수행");
+    }
+
+    @Override
+    public void attack() {
+        System.out.println("드라군이 " + attackPoint + "(으)로 삐비빅 공격하는 로직 수행");
+    }
+
+    @Override
+    public void stop(){
+        System.out.println("드라군이 멈추는 로직 수행행");
     }
 
 }
