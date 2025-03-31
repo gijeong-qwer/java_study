@@ -16,7 +16,7 @@ interface BBB{
     public abstract void method1();
     public abstract void method2();
     public void method3(); // abstract를 안써도 abstract임  >>> 개발자들 극선호 표현 다 같은 표현이지만 
-    void method4(); // public도 자동으로 붙음음
+    void method4(); // public도 자동으로 붙음 
 }
 
 

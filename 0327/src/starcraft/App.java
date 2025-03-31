@@ -141,7 +141,7 @@ class Dragoon extends Unit {
 
     @Override
     public void stop(){
-        System.out.println("드라군이 멈추는 로직 수행행");
+        System.out.println("드라군이 멈추는 로직 수행");
     }
 
 }
