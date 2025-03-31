@@ -8,8 +8,14 @@ public class TvContainer {
     private Map<String, Tv> map = new HashMap<>();
 
     public TvContainer() {
-        map.put("samsung", new SamsungTv());
-        map.put("lg", new LgTv());
+
+        // 의존 관리 설정 ..코드... Spring 으로 넘어가면 xml 또는 어노테이션으로 넘어감감
+        AppleSpeaker appleSpeaker = new AppleSpeaker();
+        SonySpeaker sonySpeaker = new SonySpeaker();
+
+        map.put("samsung", new SamsungTv(sonySpeaker)); // DI
+        map.put("lg", new LgTv(appleSpeaker)); // DI
+        map.put("xiaomi", new XiaomiTv());
     }
 
     public Tv getTv(String type) {

@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        // 인터페이스 = 상속 + 다형성 + 오버라이딩
+        // Container = new 키워드 관리 >> 인스턴스 생성 관리
+
         // [용어] 핵심 !!! 결합도를 낮춘다 !!!
         // [용어] : Ioc ,DI , container , SOLID , OCP , DIP , 디자인 패턴 ,전략패턴
         // 스프링 : Ioc ,DI 둘이 나온이유 결합도를 낮추기 위함 인스턴스의 생성을 따로 분리하기 위함, container
@@ -11,7 +14,7 @@ public class App {
         // Dependency Injection 의존성 주입 (필요한 객체를 직접 만들지 않고 외부에서 넣어줌)
         // Spring Container IoC/DI를 실현하는 주체, 객체를 관리하고 주입해주는 뇌 역할
         // 좋은 코드 : SOLID , OCP , DIP
-        // 디자인 패턴 : strategy pattern
+        // 디자인 패턴 : strategy pattern >> 인터페이스 사용하면 전략패턴이라고 사용하면됨
 
         // [프로그램]
         // 사용자가 티비를 본다
@@ -29,8 +32,8 @@ public class App {
 
         Tv tv = container.getTv(brand);
 
-        User user = new User();
-        user.watchTv(tv);
+        User user = new User(tv); // DI .. 생성자로 의존성 주입
+        user.watchTv();
 
     }
 }

@@ -1,6 +1,13 @@
 package polymorphsim;
 
 public class LgTv implements Tv {
+
+    private Speaker speaker;
+
+    public LgTv(Speaker speaker) {
+        this.speaker = speaker;
+    }
+
     @Override
     public void powerOn() {
         System.out.println("LG 티비 전원을 켜다");
@@ -11,10 +18,10 @@ public class LgTv implements Tv {
     }
 
     public void volumeUp() {
-        System.out.println("LG 티비 소리를 키운다");
+        speaker.soundUp();
     }
 
     public void volumeDown() {
-        System.out.println("LG 티비 소리를 줄인다");
+        speaker.soundDown();
     }
 }

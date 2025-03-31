@@ -1,10 +1,15 @@
 package polymorphsim;
 
-import java.util.Scanner;
-
 public class User {
 
-    public void watchTv(Tv tv) { // ***** 난 이제부터 인스턴스에 관심이 없다 ~~~
+    private final Tv tv;
+
+    // DI: 의존 주입 가능하게 하는 생성자
+    public User(Tv tv) {
+        this.tv = tv;
+    }
+
+    public void watchTv() { // ***** 난 이제부터 인스턴스에 관심이 없다 ~~~
         // SOLID 원칙 중 O 위반
         // OCP - 개방 폐쇄 원칙
         // 기능 확장에는 열려야되고 , 코드 수정은 닫혀야 한다 >> 유지 보수 관련 얘기 >> 유지 보수 쪽에서 제작비용보다 많이 들고 코드가
@@ -19,3 +24,11 @@ public class User {
 
     }
 }
+
+// 1)
+// public void watchTv(Tv tv) { // ***** 난 이제부터 인스턴스에 관심이 없다 ~~~
+
+// 2) spring 프레임워크에서는 '멤버'로 선언하고 내가 생성하진 않음!!
+// private Tv tv;
+
+// public void watchTv()
