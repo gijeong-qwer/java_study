@@ -5,7 +5,7 @@ public class Studentdto { // 개허접함 , 생성자로 초기화 할 수 있�
     private int score;
     private int age;
 
-    Studentdto() {
+    public Studentdto() {
     }
 
     public Studentdto(String name, int age, int score) { // public class 생성자 항상 public 붙이기**

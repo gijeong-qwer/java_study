@@ -38,7 +38,7 @@ public class IoUtil {
     public static void pause() {
         // Scanner sc = new Scanner(System.in); 전역함수처리해서 안써도됨됨
 
-        System.out.println("메뉴 확인을 위해해 Enter를 눌러주세요 ");
+        System.out.println("메뉴 확인을 위해 Enter를 눌러주세요 ");
         sc.nextLine();
     }
 }

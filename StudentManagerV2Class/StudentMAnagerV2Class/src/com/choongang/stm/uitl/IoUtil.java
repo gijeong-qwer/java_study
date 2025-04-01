@@ -26,4 +26,9 @@ public class IoUtil { // F2 누르면 관련된게 연쇄적으로 다 바뀜
         scanner.nextLine();
     }
 
+
+
+
+
+    
 }

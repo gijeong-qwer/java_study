@@ -68,9 +68,9 @@ public class Controller {
         return command; // return IoUtil.input("입력 > "); 이렇게 작성해도됨 2줄 > 1줄로 압축
     }
 
-    private boolean isExitCode(String command) {
-        return command.equals("0");
-    }
+        private boolean isExitCode(String command) {
+            return command.equals("0");
+        }
 
     private void branchFlowByCommand(String command) { // flow를 나누겠다
         switch (command) {

@@ -6,11 +6,12 @@ import p1.util.IoUtil;
 
 public class Service {
     Repository repository = new Repository();
+    int count = 0;
 
     // public Service() { // public class의 기본 생성자는 public이다 , 쓸 필요 없는데 그냥 확인용으로 써봄
 
     // }
-
+    
     public void register() { // 학생 정보 입력은 service에서 구현했어야했는데 못했음
         // todo: 입력받는 기능 >> 저장은 repository에 // repository.보관소 = input
         // 입력을 여기서 받고 그 값 저장을 repo에서 하면됨 !!!
@@ -20,6 +21,17 @@ public class Service {
         int score = Integer.parseInt(IoUtil.input("점수 입력 > "));
         Studentdto studentdto = new Studentdto(name, age, score);
         repository.save(studentdto);
+        count ++;
+    }
 
+    public void showList(){
+        // Studentdto[] showStudentdtos = new Studentdto[count];  >> 생각할필요없는데 이부분 피드백!!! 뭘 못한거지?
+            showStudentdtos = repository.findAll();
+        for(int i=0; i<count; i++){
+            String text = "";
+            text += "이름: " +showStudentdtos.getName();
+
+            
+        }
     }
 }
