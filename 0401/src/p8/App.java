@@ -12,7 +12,7 @@ public class App {
         set.add(20);
 
         for (int e : set) {
-            System.out.println(e);
+            System.out.println(e); // 넣는 순서와 상관없이 정렬되어서 나옴 
         }
     }
 }
