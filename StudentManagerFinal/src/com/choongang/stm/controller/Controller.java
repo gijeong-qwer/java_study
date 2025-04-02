@@ -45,8 +45,10 @@ public class Controller {
                 service.remove();
             } else if (command.equals("5")) {
                 // 수정
+
             } else if (command.equals("6")) {
                 // 통계
+                service.statistics();
             } else {
                 IoUtil.print("잘못 입력하셨습니다 . 다시 입력해 주세요. ");
             }
