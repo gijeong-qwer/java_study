@@ -17,9 +17,7 @@ public class StudentDto {
         this.score = score;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name;}
 
     public void setName(String name) {
         this.name = name; // 관례
@@ -42,3 +40,5 @@ public class StudentDto {
     }
 
 }
+// AAA a;
+// a = new AAA
