@@ -15,31 +15,40 @@ import com.choongang.stm.uitl.IoUtil;
 // component : 로직을 담당함 >> Controller는 component임
 public class Controller {
 
-    private Service service = new Service();
-    // new Controller 생성후 연쇄적으로 new Service 가 생성됨 >>LC(라이프 사이클)이 동시에 돌음음
+    private Service service = new Service(); // composition관계 ( new 까지 붙어서 ) 만약 >> 이경우는 각각의 Controller가 service를 각자
+                                             // 생성하느라 메모리 부족 문제로 이어질 수 있음,
+    // 예를들면 100개의 인스턴스면 100개의 서비스면 메모리과부하 >> 그래서 현시대는 composition으로 잘 안만들고
+    // Aggression(집합)으로 만듦
+    // private Service service; 이렇게만하고 생성을 따로 받으면 >> 집합 관계
+    // new Controller 생성후 연쇄적으로 new Service 가 생성됨 >>LC(라이프 사이클)이 동시에 돌음
+    // 인스턴스 메서드일때 this키워드가 안붙어있으면 쓸모가 없는것// 인스턴스 메서드일때 this키워드가 안붙어있으면 쓸모가 없는것//
+    // 인스턴스 메서드일때 this키워드가 안붙어있으면 쓸모가 없는것
+    // 응집도에 대한 고민 = 윗줄에 대한 내용
 
     public void run() {
         // System.out.println("테스트 실행"); 잘 작동하는지 점검
 
-        hello();
+        hello(); // this.hello();
 
         while (true) {
-            showMenu();
+            showMenu(); // this.showMenu();
             String command = selectCommand(); // selectCommand() 자체를 쓰려고했는데 따로 받는이유 >> selectCommand의 기능은 select만 해야하기
                                               // 때문
 
             if (isExitCode(command)) {
                 break;
             }
-            branchFlowByCommand(command);
-            waitForEnter();
+            branchFlowByCommand(command); // this.branchFlowByCommanmd(command);
+            waitForEnter(); // this.waitForEnter();
         }
 
         bye();
 
     }
 
-    private void hello() {
+    private void hello() { // this가 안쓰였으므로 >> 다른 클래스로 가야할 확률이 높음>>
+        // ************ 이 클래스의 인스턴스와 관련이 없으므로
+        // 뜯어서 다른 클래스 사용자 UI 같은식으로 View같은식으로 static으로 뜯어낼 수 있게 고민해보기 **********
         IoUtil.print("************************************************");
         IoUtil.print("*              학생 관리 프로그램              *");
         IoUtil.print("*              version 2.0                     *");
@@ -68,9 +77,9 @@ public class Controller {
         return command; // return IoUtil.input("입력 > "); 이렇게 작성해도됨 2줄 > 1줄로 압축
     }
 
-        private boolean isExitCode(String command) {
-            return command.equals("0");
-        }
+    private boolean isExitCode(String command) {
+        return command.equals("0");
+    }
 
     private void branchFlowByCommand(String command) { // flow를 나누겠다
         switch (command) {
@@ -101,3 +110,4 @@ public class Controller {
         IoUtil.pause();
     }
 }
+// 인스턴스 메서드일때 this키워드가 안붙어있으면 쓸모가 없는것
