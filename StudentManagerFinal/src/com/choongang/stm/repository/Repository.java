@@ -18,9 +18,12 @@ public class Repository {
         // 얕게 복사해서 리턴 >> 깊게 복사하는게 맞지만 , 우리과정상 얕은복사로 list 다루는게 필요한 목적으로 제작
         List<StudentDto> result = new ArrayList<>();
 
-        for (StudentDto e : studentlist) {
-            result.add(e);
+        for (StudentDto ele : studentlist) {
+            result.add(ele);
         }
+
+        int a   =7;
+        System.out.println(a);
 
         return result;
     }

@@ -27,8 +27,13 @@ public class App {
         out.println(iValue);
         iValue = now.getDay(); // 요일
         out.println(iValue);
-        iValue = now.getMonth();
+        iValue = now.getMonth(); // 0~11 이라 문제가 발생함 >> 다음패키지에 향상된 버전있음
         out.println(iValue); // 달은 전달 나옴 >> gpt 검색
+
+        // 비교
+        if (now.after(now2)) {
+
+        }
 
     }
 }
