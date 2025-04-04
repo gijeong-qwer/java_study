@@ -19,8 +19,16 @@ public class App {
         System.out.println(now2);
 
         // 날짜는 사실 long 타입의 숫자이다
-        Date d1 = new Date(1000 * 60 * 60 * 3);
+        Date d1 = new Date(0L);
         System.out.println(d1); // UTC 표준 KST 한국시간 (UTC에 비해 9시간 느림)
+
+        long kVaule = now.getTime();
+        int iValue = now.getDate();
+        out.println(iValue);
+        iValue = now.getDay(); // 요일
+        out.println(iValue);
+        iValue = now.getMonth();
+        out.println(iValue); // 달은 전달 나옴 >> gpt 검색
 
     }
 }
